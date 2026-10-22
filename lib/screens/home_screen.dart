@@ -13,8 +13,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // Índice de la sección seleccionada en la navegación inferior.
   int _currentIndex = 0;
-
+// Pantallas disponibles en el orden de la barra de navegación.
   final List<Widget> _pages = const [
     PersonaListScreen(),
     EstadoCivilScreen(),
@@ -23,10 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final List<String> _titles = const [
-    'Personas (persona)',
-    'Estado Civil (estadocivil)',
+    'Gestión de personas',
+    'Gestión de estados civiles',
     'Correos (correo)',
-    'Sexo (sexo)',
+    'Gestión del catálogo de sexo',
   ];
 
   @override
@@ -78,7 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   const SizedBox(height: 10),
                   const Text(
-                    'Aplicación móvil conectada a la base de datos eysfwis.\n\n'
+                    'Aplicación móvil EYSFLUIS conectada a la base de datos eysfwis.\n'
+'Permite consultar y gestionar información mediante una API REST.\n\n'
                     'Tablas gestionadas:\n'
                     '• persona (Datos personales)\n'
                     '• estadocivil (Catálogo de estado civil)\n'
