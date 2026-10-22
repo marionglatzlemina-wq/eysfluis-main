@@ -109,8 +109,14 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
+            icon: Tooltip(
+  message: 'Ver lista de personas',
+  child: Icon(Icons.person_outline),
+),
+selectedIcon: Tooltip(
+  message: 'Personas seleccionadas',
+  child: Icon(Icons.person),
+),
             label: 'Personas',
           ),
           NavigationDestination(
