@@ -92,10 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _pages,
-      ),
+    body: AnimatedSwitcher(
+  duration: const Duration(milliseconds: 250),
+  child: IndexedStack(
+    key: ValueKey<int>(_currentIndex),
+    index: _currentIndex,
+    children: _pages,
+  ),
+),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
