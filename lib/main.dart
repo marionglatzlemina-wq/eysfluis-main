@@ -15,7 +15,7 @@ class EysfluisApp extends StatelessWidget {
     const accentAmber = Color(0xFFF59E0B); // Ámbar
 
     return MaterialApp(
-      title: 'EYSFLUIS - eysfwis',
+      title: 'EYSFLUIS - Sistema de Gestión',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
