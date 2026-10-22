@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+import 'persona_list_screen.dart';
+import 'estado_civil_screen.dart';
+import 'correo_screen.dart';
+import 'sexo_screen.dart';
+import '../widgets/server_config_dialog.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = const [
+    PersonaListScreen(),
+    EstadoCivilScreen(),
+    CorreoScreen(),
+    SexoScreen(),
+  ];
+
+  final List<String> _titles = const [
+    'Personas (persona)',
+    'Estado Civil (estadocivil)',
+    'Correos (correo)',
+    'Sexo (sexo)',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.storage, size: 20, color: Colors.amber),
+                const SizedBox(width: 8),
+                const Text(
+                  'EYSFLUIS - EYSFWIS',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ],
+            ),
+            Text(
+              _titles[_currentIndex],
+              style: TextStyle(
+                fontSize: 12,
+                color: theme.colorScheme.onPrimary.withValues(alpha: 0.8),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.dns),
+            tooltip: 'Configuración Servidor BD eysfwis',
+            onPressed: () => ServerConfigDialog.show(context),
+          ),
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'Acerca de EYSFLUIS',
+            onPressed: () {
+              showAboutDialog(
+                context: context,
+                applicationName: 'EYSFLUIS - Sistema Móvil eysfwis',
+                applicationVersion: 'v2.0',
+                applicationIcon: const CircleAvatar(
+                  backgroundColor: Color(0xFF1E3A8A),
+                  child: Icon(Icons.storage, color: Colors.amber),
+                ),
+                children: [
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Aplicación móvil conectada a la base de datos eysfwis.\n\n'
+                    'Tablas gestionadas:\n'
+                    '• persona (Datos personales)\n'
+                    '• estadocivil (Catálogo de estado civil)\n'
+                    '• correo / correoelectronico (Correos electrónicos)\n'
+                    '• sexo (Catálogo de sexos)\n\n'
+                    'Soporta CRUD completo con validación y conectividad API REST.',
+                  ),
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
+            label: 'Personas',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.favorite_outline),
+            selectedIcon: Icon(Icons.favorite),
+            label: 'Estado Civil',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.email_outlined),
+            selectedIcon: Icon(Icons.email),
+            label: 'Correos',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.people_outline),
+            selectedIcon: Icon(Icons.people),
+            label: 'Sexo',
+          ),
+        ],
+      ),
+    );
+  }
+}
