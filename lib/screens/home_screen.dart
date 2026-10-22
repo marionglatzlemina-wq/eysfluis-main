@@ -24,11 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final List<String> _titles = const [
-    'Gestión de personas',
-    'Gestión de estados civiles',
-    'Correos (correo)',
-    'Gestión del catálogo de sexo',
-  ];
+  'Gestión de personas',
+  'Gestión de estados civiles',
+  'Gestión de correos electrónicos',
+  'Gestión del catálogo de sexo',
+];
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Icon(Icons.storage, size: 20, color: Colors.amber),
                 const SizedBox(width: 8),
                 const Text(
-                  'EYSFLUIS - EYSFWIS',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
+  'EYSFLUIS - EYSFWIS',
+  maxLines: 1,
+  overflow: TextOverflow.ellipsis,
+  style: TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 18,
+  ),
+),
               ],
             ),
             Text(
@@ -71,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
               showAboutDialog(
                 context: context,
                 applicationName: 'EYSFLUIS - Sistema Móvil eysfwis',
-                applicationVersion: 'v2.0',
+                applicationVersion: 'v2.1',
                 applicationIcon: const CircleAvatar(
                   backgroundColor: Color(0xFF1E3A8A),
                   child: Icon(Icons.storage, color: Colors.amber),
@@ -95,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     body: AnimatedSwitcher(
-  duration: const Duration(milliseconds: 250),
+  duration: const Duration(milliseconds: 350),
   child: IndexedStack(
     key: ValueKey<int>(_currentIndex),
     index: _currentIndex,
@@ -110,33 +115,51 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         destinations: const [
-          NavigationDestination(
-            icon: Tooltip(
-  message: 'Ver lista de personas',
-  child: Icon(Icons.person_outline),
-),
-selectedIcon: Tooltip(
-  message: 'Personas seleccionadas',
-  child: Icon(Icons.person),
-),
-            label: 'Personas',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.favorite_outline),
-            selectedIcon: Icon(Icons.favorite),
-            label: 'Estado Civil',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.email_outlined),
-            selectedIcon: Icon(Icons.email),
-            label: 'Correos',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.people_outline),
-            selectedIcon: Icon(Icons.people),
-            label: 'Sexo',
-          ),
-        ],
+  NavigationDestination(
+    icon: Tooltip(
+      message: 'Ver lista de personas',
+      child: Icon(Icons.person_outline),
+    ),
+    selectedIcon: Tooltip(
+      message: 'Sección de personas seleccionada',
+      child: Icon(Icons.person),
+    ),
+    label: 'Personas',
+  ),
+  NavigationDestination(
+    icon: Tooltip(
+      message: 'Consultar estados civiles',
+      child: Icon(Icons.favorite_outline),
+    ),
+    selectedIcon: Tooltip(
+      message: 'Sección de estado civil seleccionada',
+      child: Icon(Icons.favorite),
+    ),
+    label: 'Estado Civil',
+  ),
+  NavigationDestination(
+    icon: Tooltip(
+      message: 'Consultar correos electrónicos',
+      child: Icon(Icons.email_outlined),
+    ),
+    selectedIcon: Tooltip(
+      message: 'Sección de correos seleccionada',
+      child: Icon(Icons.email),
+    ),
+    label: 'Correos',
+  ),
+  NavigationDestination(
+    icon: Tooltip(
+      message: 'Consultar catálogo de sexo',
+      child: Icon(Icons.people_outline),
+    ),
+    selectedIcon: Tooltip(
+      message: 'Sección de sexo seleccionada',
+      child: Icon(Icons.people),
+    ),
+    label: 'Sexo',
+  ),
+],
       ),
     );
   }
