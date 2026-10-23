@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   'Administracion de personas',
   'Gestión de estados civiles',
   'Administración de correos electrónicos',
-  'Gestión del catálogo de sexo',
+  'Administracion del catálogo de sexo',
 ];
 
   @override
