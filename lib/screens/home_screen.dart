@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.dns),
-            tooltip: 'Configuración Servidor BD eysfwis',
+            tooltip: 'Configurar conexión con el servidor de base de datos',
             onPressed: () => ServerConfigDialog.show(context),
           ),
           IconButton(
