@@ -1,1 +1,2 @@
 # Colaboradores
+- Joseph Bautista
