@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     body: AnimatedSwitcher(
-  duration: const Duration(milliseconds: 350),
+  duration: const Duration(milliseconds: 400),
   child: IndexedStack(
     key: ValueKey<int>(_currentIndex),
     index: _currentIndex,
