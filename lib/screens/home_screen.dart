@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final List<String> _titles = const [
-  'Gestión de personas',
+  'Administracion de personas',
   'Gestión de estados civiles',
   'Administración de correos electrónicos',
   'Gestión del catálogo de sexo',
