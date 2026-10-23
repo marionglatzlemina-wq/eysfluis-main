@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               showAboutDialog(
                 context: context,
-                applicationName: 'EYSFLUIS - Sistema Móvil eysfwis',
+                applicationName: 'EYSFLUIS - Sistema de Gestión Móvil',
                 applicationVersion: 'Versión 2.1',
                 applicationIcon: const CircleAvatar(
                   backgroundColor: Color(0xFF1E3A8A),
