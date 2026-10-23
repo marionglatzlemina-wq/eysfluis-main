@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.info_outline),
-            tooltip: 'Información de EYSFLUIS',
+            tooltip: 'Información de EYSFLUIS-MAIN',
             onPressed: () {
               showAboutDialog(
                 context: context,
